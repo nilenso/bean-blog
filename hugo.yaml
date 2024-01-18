@@ -36,3 +36,8 @@ params:
   sidebar: true
 
 mainSections: []
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
