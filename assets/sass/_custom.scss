@@ -1,0 +1,30 @@
+// Site custom styles. This file loads last.
+.header,
+%header {
+    gap: 10px;
+    color: $bean-green;
+
+    &__site-name {
+        line-height: var(--heading-line-height);
+        display: flex;
+    }
+
+    &__site-link {
+        align-self: end;
+
+        &:link,
+        &:visited {
+            color: $bean-green;
+            text-decoration: none;
+        }
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+h1#a-spreadsheet-playground {
+    margin-top: 0;
+}

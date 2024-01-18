@@ -1,0 +1,38 @@
+---
+baseurl: "https://bean.nilenso.com"
+languageCode: "en-us"
+title: "bean"
+theme: "zen"
+
+defaultContentLanguage: "en"
+pluralizelisttitles: false
+removePathAccents: true
+paginate: 10
+paginatePath: "page"
+rssLimit: 20
+author:
+  
+outputFormats:
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home: ["HTML","RSS", "JSON", "SearchIndex"]
+  section: ["HTML","RSS", "JSON"]
+
+params:
+  description: "Bean – A spreadsheet playground"
+  dateformat: "2 January, 2006"
+  feedlinks: true
+  imageMaxWidth: 400
+  logoWidth: 64
+  mobileMenu: true
+  poweredby: true
+  realfavicongenerator: true
+  submitted: true
+  sidebar: true
+
+mainSections: []
