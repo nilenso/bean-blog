@@ -24,7 +24,7 @@ outputs:
   section: ["HTML","RSS", "JSON"]
 
 params:
-  description: "Bean – A spreadsheet playground"
+  description: "Bean"
   dateformat: "2 January, 2006"
   feedlinks: true
   imageMaxWidth: 400

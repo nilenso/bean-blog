@@ -1,6 +1,6 @@
 ---
 title: "Spreadsheets and Small Software"
-
+summary: " "
 ---
 
 *or why we need more spreadsheets.*
@@ -11,7 +11,7 @@ I dropped into a Google Sheet and got started. By the end I had half a dozen wor
 
 As a software engineer, I like to write and appreciate <em>good</em> software (no, I pine for it) – easy to work with, easy to understand, amenable to change, and reliable. The sheet was none of these things. 
 
-I was compelled to take a close look at why it was so. It's been a few months since. This is a quick summary of things I've found, some of my thoughts and what I’ve been up to with them.
+I was compelled to take a close look at why it was so. This is a quick summary of things I've found, some of my thoughts and what I’ve been up to with them.
 
 ## My Spreadsheet problem
 If you’ve spent enough time on a sheet you’ve seen these: copy-paste errors, finicky date formats, a mixup with a relative/absolute reference, some rows at the bottom missing from an average[^spreadsheet-programming-problems], awkward VLOOKUPs, INDEX-MATCHes, workarounds for circular references[^dont-circular-ref] and mega-formulas[^mega-formulas]. Put a few of these in a sheet and it gets messy very quickly.
