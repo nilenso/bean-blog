@@ -1,8 +1,9 @@
 ---
-baseurl: "https://bean.nilenso.com"
+baseurl: "https://bean.nilenso.com/blog"
 languageCode: "en-us"
 title: "Bean"
 theme: "zen"
+publishDir: "./public/blog"
 
 defaultContentLanguage: "en"
 pluralizelisttitles: false
