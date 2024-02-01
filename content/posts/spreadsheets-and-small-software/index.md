@@ -1,9 +1,9 @@
 ---
 title: "Spreadsheets and Small Software"
 summary: " "
+author: "Prabhanshu Gupta"
+lastmod: 2023-11-23
 ---
-
-*or why we need more spreadsheets.*
 
 My father decided to get a whole bunch of new furniture made (like we all do at some point in our lives). New beds, doors, chairs, closets. A carpenter was hired. Many kinds of woods were looked at and some were picked. I was tasked with tracking finances for the whole exercise. 
 
