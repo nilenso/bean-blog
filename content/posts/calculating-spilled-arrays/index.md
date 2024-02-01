@@ -2,7 +2,7 @@
 title: "Calculating spilled arrays in a spreadsheet"
 summary: " "
 author: "Prabhanshu Gupta"
-lastmod: 2024-01-26
+lastmod: 2024-02-01
 ---
 
 A spreadsheet formula can evaluate to a single value or an array of values. When it evaluates to an array, the result is "spilled" into neighbouring cells underneath. Here's an example
@@ -87,7 +87,7 @@ There's a few ways to make this efficient. An efficient recalculation usually ta
 - minimising the set of dependents to be recalculated, and
 - making sure each dependent is recalculated at most once.
 
-We'll leave it at that for now (This is covered very well in this [article](https://lord.io/spreadsheets/) which I highly recommend checking out).
+We'll leave it at that for now (This is covered very well in this [article](https://lord.io/spreadsheets/)).
 
 ## What's up with spilled arrays
 
@@ -133,7 +133,7 @@ When a spiller evaluates to an array of values
 
 Whenever a cell is evaluated, we evaluate the `interested-spillers` in addition to other formula dependents. This can be done by adding `interested-spillers` to the depgraph as a reval dependent.
 
-Note that while spilling, if a cell is already spilled into we return a `Spill Error`. This ensures that the first edited formula stays spilled and future spillers don't.
+Note that while spilling, if a cell is already spilled into we return a `Spill Error`. This ensures that the oldest formula stays spilled and future spillers don't.
 
 ## Detecting circular dependencies
 
@@ -149,15 +149,15 @@ In this example, we can spot the cycle using the depgraph easily. For single cel
 
 <p><img src="circular-ref-graph.png" class="w-30"></p>
 
-Let's look at how a cycle can manifest with spilled arrays.
+Here's how a cycle can manifest with spilled arrays.
 
 <p><img src="spill-cycle.png" class="w-80 mw-95"></p>
 
 1. `D5` refers to `B1:D3` and spills into `E6`.
 2. `E6` gets the value `105` since `C2` is `5`.
-3. A formula is entered into `C2` that refers to `E6` (here is the loop).
+3. A formula is entered into `C2` that refers to `E6` (here is the cycle).
 
-Upon evaluating `C2` we'll go into a cycle. Here's the depgraph.
+Upon evaluating `C2` we'll enter a loop. Here's the depgraph.
 <p><img src="spill-depgraph.png" class="w-60 mw-95"></p>
 
 Hang on a second. If you follow the arrows though, there's clearly no cycle in the depgraph. How come?
@@ -182,7 +182,7 @@ A working implementation of all this can be found [here](https://github.com/nile
 [^excel-dynamic-arrays]: [Dynamic array formulas and spilled array behavior](https://support.microsoft.com/en-us/office/dynamic-array-formulas-and-spilled-array-behavior-205c6b06-03ba-4151-89a1-87a7eb36e531) – support.microsoft.com 
 [^google-array-formulas]: In Google Sheets, you can wrap a formula in an [`ARRAYFORMULA`](https://support.google.com/docs/answer/3093275?hl=en) to achieve the same result. Sheets has had the feature for very long (at least since 2009) while Excel introduced this in 2018.
 [^sestoft-calls-it-a-support-graph]: It's called a `Support graph` in [Spreadsheet Implementation Technology](https://direct.mit.edu/books/book/3071/Spreadsheet-Implementation-TechnologyBasics-and) by Peter Sestoft.
-[^phases]: We can mark two "phases" in a spreadsheet's evaluation. A first pass, when we start with a sheet full of formula strings and no other information. All the cells in a sheet need to be evaluated in _some_ order (row-major, let's say). The first pass sets up the stage for any incremental re-evaluations. <br><br> Once a first pass is done, each cell update causes an incremental re-evaluation. We tackle incremental re-evaluations first. The first pass can then be expressed as incremental evaluations over each cell starting with a blank sheet.
+[^phases]: We can mark two "phases" in a spreadsheet's evaluation. A first pass, when we start with a sheet full of formula strings and no other information. All the cells in a sheet need to be evaluated in _some_ order (row-major, let's say). The first pass sets up the stage for any incremental re-evaluations. <br><br> Once a first pass is done, each cell update causes an incremental re-evaluation. We tackle incremental re-evaluations here. The first pass can then be expressed as incremental evaluations over each cell starting with a blank sheet.
 [^lord-io]: [How to recalculate a spreadsheet](https://lord.io/spreadsheets/), lord.io
 [^sestoft]: Once a first pass is done, each cell update causes an incremental re-evaluation. We tackle incremental re-evaluations first. The first pass can then be expressed as incremental evaluations over each cell starting with a blank sheet.
 
