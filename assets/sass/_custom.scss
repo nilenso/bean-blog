@@ -23,8 +23,48 @@
             text-decoration: none;
         }
     }
+
+    margin-bottom: 0;
 }
 
-h1#a-spreadsheet-playground {
-    margin-top: 0;
+header {
+    @include margin-block(0 1.0);
+}
+
+aside {
+    margin: 1.6rem;
+    padding-inline: 0;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    display: table;
+}
+
+aside ul > li {
+    display: table-row;
+}
+
+aside ul > li::before {
+    padding-inline-end: .75rem;
+    display: table-cell;
+    content: '\2981';
+    font-size: 0.8rem;
+}
+
+blockquote {
+    color: #555;
+    border-left: 4px solid #eee;
+    padding-left: 30px;
+    margin-left: 0;
+}
+
+.footer {
+    border-top: 3px solid $bean-green;
+    color: #999;
+}
+
+.mobile-nav {
+    padding: 5px 8px 5px 8px;
 }

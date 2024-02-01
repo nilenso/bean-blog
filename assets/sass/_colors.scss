@@ -15,11 +15,14 @@ $blue:                  #0072b9;
 $red:                   #c00;
 $green:                 #43a808;
 $yellow:                #fd0;
+$orange:                #c84a18;
 
 $brand:                 $nearblack;
 $brand-alt:             $grey;
 $brand-light:           $grey-light;
 $brand-dark:            $grey-dark;
+
+
 
 // Colour map.
 $colors: (
@@ -88,7 +91,7 @@ $colors: (
 
   headings:               $nearblack,
 
-  code:                   $nearblack,
+  code:                   $orange,
 
   highlight:              $brand-alt,
 );

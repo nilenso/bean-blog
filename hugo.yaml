@@ -1,7 +1,7 @@
 ---
 baseurl: "https://bean.nilenso.com"
 languageCode: "en-us"
-title: "bean"
+title: "Bean"
 theme: "zen"
 
 defaultContentLanguage: "en"
@@ -41,3 +41,7 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+  highlight:
+    style: friendly
+
