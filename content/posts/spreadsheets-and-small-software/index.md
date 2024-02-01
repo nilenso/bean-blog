@@ -89,10 +89,7 @@ So we’re <a href="https://github.com/nilenso/bean">writing a spreadsheet</a> t
 
 Lastly, any other way of writing sane and functional programs requires a big commitment to learn and get started. The choice is between the scrappy utilities in existing spreadsheets and installing Python on your computer. I think spreadsheets still hold the promise of a well-formed environment for making small software; where the medium, the language, and the tooling works as one.
 
---- 
 Thanks to <a href="https://twitter.com/AtharvaRaykar">Atharva</a>, <a href="https://twitter.com/prathyvsh/">Prathyush</a> and friends for reviewing this post.
-
-## Footnotes, references
 
 [^spreadsheet-programming-problems]: [Spreadsheet programming problems](https://leancrew.com/all-this/2013/04/spreadsheet-programming-problems) – leancrew.com (Blog, 2013)
 [^dont-circular-ref]: [WHY and HOW to stop using circular references to calculate interest](https://www.youtube.com/watch?v=k5rG_MvIWWs") – Diarmuid Early (Video, 2022)
