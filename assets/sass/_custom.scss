@@ -24,7 +24,8 @@
         }
     }
 
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    padding-bottom: 0;
 }
 
 header {
@@ -51,6 +52,7 @@ aside ul > li::before {
     display: table-cell;
     content: '\2981';
     font-size: 0.8rem;
+    padding-bottom: 20px;
 }
 
 blockquote {
@@ -67,4 +69,65 @@ blockquote {
 
 .mobile-nav {
     padding: 5px 8px 5px 8px;
+}
+
+.layout {
+    &__second-sidebar {
+        padding-inline: var(--gutters);
+        min-width: 0;  // With display grid defaults to auto, making <pre> overflow.
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &__second-sidebar > .menu {
+      background: #F4F5F3;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    &__second-sidebar > .menu > .title{
+        padding-bottom: 20px;
+        border-bottom: 2px dotted #ccc;
+      }
+  }
+
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--fs-xl);
+  letter-spacing: -0.03em;
+}
+
+h3,
+%h3 {
+  font-size: var(--fs-l);
+  letter-spacing: -0.03em;
+}
+
+h4,
+%h4 {
+  font-size: var(--fs-m);
+}
+
+h5,
+%h5 {
+  font-size: var(--fs-s);
+}
+
+h6,
+%h6 {
+  font-size: var(--fs-xs);
+}
+
+.meta {
+    letter-spacing: -0.01rem;
+}
+
+@media (max-width:480px)  { 
+    .layout__main {
+        padding: 0 17px 0 17px;
+    }
 }
