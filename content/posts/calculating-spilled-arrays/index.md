@@ -2,7 +2,7 @@
 title: "Calculating spilled arrays in a spreadsheet"
 summary: " "
 author: "Prabhanshu Gupta"
-lastmod: 2024-02-01
+lastmod: 2024-03-05
 ---
 
 A spreadsheet formula can evaluate to a single value or an array of values. When it evaluates to an array, the result is "spilled" into neighbouring cells underneath. Here's an example
@@ -16,14 +16,14 @@ Excel calls this a Spilled Array formula[^excel-dynamic-arrays] [^google-array-f
 <p><img src="terminology.png" class="w-60 mw-95"></p>
 
 Here's how we want this to work. When a formula evaluates to an array of values
-- The values are distributed in cells below. The offset of each spillee is its index in the array.
-- Only the first cell (the spiller) has a formula. The spillees' contents remain empty – their value is set by the spiller. This is to avoid overwriting any content a user might have entered manually.
-- When a formula tries to spill over a cell that already has some user-entered text, a `Spill Error` is shown.
+- The values get distributed in cells below. The offset of each spillee is its index in the array.
+- Only the first cell (the spiller) contains a formula. The spillees' remain empty – their value is set by the spiller. This is to avoid overwriting any content a user might have entered manually.
+- When a formula tries to spill over a cell that already has some contents, a `Spill Error` is shown.
 - When a user input blocking a spillage is cleared, the `Spill Error` is resolved and the array spills.
 - When multiple formulas try to spill over a cell, only one of them is allowed to spill. The other ones get a `Spill Error`.
 - Usual auto-recalculation still applies: if we edit the spiller, the spillees need to be updated.
 
-I think that covers everything. One last thing – we don't know the size of spillage until the spiller's formula is evaluated. The array can expand or shrink when the spiller's inputs change. Excel calls them "Dynamic arrays" for this reason.
+I think that covers everything[^higher-order]. One last thing – we don't know the size of spillage until the spiller's formula is evaluated. The array can expand or shrink when the spiller's inputs change. Excel calls them "Dynamic arrays" for this reason.
 
 ------
 
@@ -177,12 +177,11 @@ And that's about my best understanding of this problem. I'd be curious to hear b
 
 A working implementation of all this can be found [here](https://github.com/nilenso/bean/blob/456dc37ef536a5d2e11e9e89ad540f7e03b9cd7a/src/bean/grid.cljs#L44) (sans detecting circular references).
 
+[^higher-order]: In [Higher-Order Spreadsheets with Spilled Arrays](https://advait.org/files/williams_2020_higher_order_spreadsheets.pdf), Jack Williams, Nima Joharizadeh, Andrew D. Gordon & Advait Sarkar describe spillage more formally than what I have outlined here, for those seeking a more technical explanation.
 [^excel-dynamic-arrays]: [Dynamic array formulas and spilled array behavior](https://support.microsoft.com/en-us/office/dynamic-array-formulas-and-spilled-array-behavior-205c6b06-03ba-4151-89a1-87a7eb36e531) – support.microsoft.com 
 [^google-array-formulas]: In Google Sheets, you can wrap a formula in an [`ARRAYFORMULA`](https://support.google.com/docs/answer/3093275?hl=en) to achieve the same result. Sheets has had the feature for very long (at least since 2009) while Excel introduced this in 2018.
 [^sestoft-calls-it-a-support-graph]: It's called a `Support graph` in [Spreadsheet Implementation Technology](https://direct.mit.edu/books/book/3071/Spreadsheet-Implementation-TechnologyBasics-and) by Peter Sestoft.
 [^phases]: We can mark two "phases" in a spreadsheet's evaluation. A first pass, when we start with a sheet full of formula strings and no other information. All the cells in a sheet need to be evaluated in _some_ order (row-major, let's say). The first pass sets up the stage for any incremental re-evaluations. <br><br> Once a first pass is done, each cell update causes an incremental re-evaluation. We tackle incremental re-evaluations here. The first pass can then be expressed as incremental evaluations over each cell starting with a blank sheet.
-
-Once a first pass is done, each cell update causes an incremental re-evaluation. We tackle incremental re-evaluations first. The first pass can be expressed as incremental evaluations over each cell starting with a blank sheet.
 
 <style>
 .w-30 {
