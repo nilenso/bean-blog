@@ -26,10 +26,15 @@
 
     margin-bottom: 20px;
     padding-bottom: 0;
+    margin-top: 20px;
 }
 
 header {
     @include margin-block(0 1.0);
+}
+
+body {
+    background-color: white;
 }
 
 aside {
@@ -47,12 +52,12 @@ aside ul > li {
     display: table-row;
 }
 
-aside ul > li::before {
-    padding-inline-end: .75rem;
-    display: table-cell;
-    content: '\2981';
-    font-size: 0.8rem;
-}
+// aside ul > li::before {
+//     padding-inline-end: .75rem;
+//     display: table-cell;
+//     // content: '\2981';
+//     font-size: 0.8rem;
+// }
 
 blockquote {
     color: #555;
@@ -80,13 +85,52 @@ blockquote {
 
     &__second-sidebar > .menu {
       background: #F4F5F3;
-      padding: 20px;
+      padding: 24px;
       border-radius: 20px;
     }
 
     &__second-sidebar > .menu > .title{
-        padding-bottom: 20px;
+        padding-bottom: 12px;
         border-bottom: 2px dotted #ccc;
+        font-family: var(--ff-headings);
+        text-transform: uppercase;
+        font-size:var(--fs-s);
+      }
+
+      &__second-sidebar > .menu > .title  a{
+      text-decoration: none;
+      }
+
+      &__second-sidebar > .menu > ul  {
+
+        margin-bottom: 0px;
+        
+        
+      }
+
+
+    &__second-sidebar > .menu > ul > li {
+        display: block;
+        margin-bottom: 14px;
+        font-family: var(--ff-headings);
+        font-weight: 500;
+        
+      }
+
+    &__second-sidebar > .menu > ul > li > a {
+        font-family: var(--ff-headings);
+        font-size: var(--fs-xs);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+    &__second-sidebar > .menu > ul > li > span {
+        font-size: 0.686rem;
+        opacity: 0.5;
+        font-family: var(--ff-body);
+        font-weight: 300;
+        display: block;
       }
   }
 
@@ -119,6 +163,25 @@ h5,
 h6,
 %h6 {
   font-size: var(--fs-xs);
+}
+
+.header-link {
+    display: inline-flex;
+    font-family: var(--ff-headings);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    align-items: center;
+    opacity: 0.3;
+    color: black;
+    text-decoration: none;
+}
+
+.header-link img {
+    margin-right: 4px;
+}
+
+.header-logo {
+    width: 100%;
 }
 
 .meta {
