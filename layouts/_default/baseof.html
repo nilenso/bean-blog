@@ -24,7 +24,7 @@
 <header class="header layout__header">
 {{ if $.Param "logo" | default true -}}
 <a href="{{ site.Home.RelPermalink }}" title="Home" rel="home" class="header__logo">
-<img src="{{ with $.Param "logopath" }}{{ . | relURL }}{{ else }}{{ "images/logo.png" | relURL }}{{ end }}"{{ with $.Param "logowidth" }} width="{{ . }}"{{ end }}{{ with $.Param "logoheight" }} height="{{ . }}"{{ end }} alt="Home" class="header__logo-image">
+<img class="header-logo" src="{{ with $.Param "logopath" }}{{ . | relURL }}{{ else }}{{ "images/bean-logo.svg" | relURL }}{{ end }}"{{ with $.Param "logowidth" }} width="{{ . }}"{{ end }}{{ with $.Param "logoheight" }} height="{{ . }}"{{ end }} alt="Home" class="header__logo-image">
 </a>
 {{ end -}}
 <!-- <h1 class="header__site-name{{ if not ($.Param "sitename" | default true) }} visually-hidden{{ end }}">
@@ -35,6 +35,8 @@
 {{ if $.Param "menuinheader" }}{{ partial "menu.html" . }}{{ end -}}
 </div>
 {{ if $.Param "mobilemenu" }}{{ partial "mobilemenu.html" . }}{{ end -}}
+
+<a href="mailto:prabhanshu@nilenso.com" class="header-link"><img src="/blog/images/contact-icon.svg"> </img> <span>Contact Us</span></a>
 </header>
 
 {{ if not ($.Param "menuinheader") }}{{ partial "menu.html" . }}{{ end -}}
