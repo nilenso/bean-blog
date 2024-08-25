@@ -17,7 +17,9 @@ Copy-pasting, or "filling down" makes up a big part of spreadsheet magic. Users 
 - When a formula is changed, the change needs to be replicated to all the cells it was applied to.
 - When new data is added to a list, dependent columns need to be filled into again.
 
-In general, formula replication is known to be error-prone and easy to get wrong.
+In general, formula replication is known to be error-prone and easy to get wrong. Here's an example of something new users often grapple with (from [Excel's manual](https://support.microsoft.com/en-gb/office/switch-between-relative-absolute-and-mixed-references-dfec08cd-ae65-4f56-839e-5f0d8d0baca9)).
+
+<p><img src="hybrid-references.png" class="w-80 mw-95" ></p>
 
 So we take a look at relative references as a design choice: What problem do they try to solve? What are they good for? Can we do better?
 
