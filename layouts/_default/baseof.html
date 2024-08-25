@@ -35,9 +35,9 @@
 {{ if $.Param "menuinheader" }}{{ partial "menu.html" . }}{{ end -}}
 </div>
 {{ if $.Param "mobilemenu" }}{{ partial "mobilemenu.html" . }}{{ end -}}
-<a href="https://bean.nilenso.com" class="header-link">▶&nbsp;<span>Playground</span></a>
-<a href="/blog/bibliography" class="header-link"><img src="/blog/images/book-icon.svg" width="20"></img>&nbsp;<span>Bibliography</span></a>
-<a href="mailto:hello@nilenso.com" class="header-link"><img src="/blog/images/contact-icon.svg" width="25"> </img><span>Contact</span></a>
+<a href="https://bean.nilenso.com" class="header-link">▶&nbsp;&nbsp;<span></span></a>
+<a href="/blog/bibliography" class="header-link"><img src="/blog/images/book-icon.svg" width="20"></img>&nbsp;<span></span></a>
+<a href="https://github.com/nilenso/bean" class="header-link"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="25"> </img><span></span></a>
 </header>
 
 {{ if not ($.Param "menuinheader") }}{{ partial "menu.html" . }}{{ end -}}
