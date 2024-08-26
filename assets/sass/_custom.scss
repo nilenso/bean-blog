@@ -63,7 +63,7 @@ blockquote {
 }
 
 .footer {
-    border-top: 3px solid $bean-green;
+    border-top: 3px solid $bean-grey;
     color: #999;
 }
 
@@ -80,9 +80,9 @@ blockquote {
     }
 
     &__second-sidebar > .menu {
-      background: #F4F5F3;
+      background: $bean-grey;
       padding: 24px;
-      border-radius: 20px;
+      border-radius: 15px;
     }
 
     &__second-sidebar > .menu > .title{
